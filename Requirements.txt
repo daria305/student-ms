@@ -1,0 +1,16 @@
+Functional requirements
+The administrator will be able to log in and logout.
+The administrator will be able to create new courses for a semester.
+Each course will contain different items such as course material, student’s attendance, weekly course schedule, assignment, and download section.
+The administrator will be able to upload different course contents such as PPT files, past papers, important questions, Syllabus, course contents in the download section for students.
+The administrator will be able to create a weekly time table for students.
+The administrator will be able to maintain daily attendance.
+The administrator will be able to upload assignments for students.
+The administrator will be able to register students for their courses.
+The administrator will be able to upload student’s marks for different activities such as assignments, pre-board examinations, quizzes, etc.
+The administrator will be able to accept or reject student’s leave applications.
+The student will be able to mark their attendance online.
+The student will be able to check the weekly course schedule,
+The student will be able to download different course material such as lectures PPT files, past papers, assignment files, etc.
+The student will be able to check the results of different activities such as assignments, quizzes, etc.
+Students will be able to submit leave applications.
