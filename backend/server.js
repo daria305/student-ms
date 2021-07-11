@@ -2,12 +2,11 @@ import dotenv from "dotenv";
 import mongoose from "mongoose";
 import express, { json } from "express";
 import cors from "cors";
-import tokenVerification from './src/middleware/token.js'
 import routes from "./src/routes/main.js";
+import jwt from 'jsonwebtoken';
+import UserModel from "./src/models/user.js";
 
 dotenv.config({ path: "./.env" });
-
-
 
 class Server {
     constructor() {
@@ -49,7 +48,7 @@ class Server {
              if (exp < Date.now().valueOf() / 1000) { 
               return res.status(401).json({ error: "JWT token has expired, please login to obtain a new one" });
              } 
-             res.locals.loggedInUser = await User.findById(userId); next(); 
+             res.locals.loggedInUser = await UserModel.findById(userId); next(); 
             } else { 
              next(); 
             } 

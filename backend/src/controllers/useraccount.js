@@ -34,7 +34,7 @@ export const login = async (req, res, next) => {
     try {
      const { email, password } = req.body;
 
-     const user = await User.findOne({ email });
+     const user = await UserModel.findOne({ email });
      if (!user) return next(new Error('Email does not exist'));
 
      const validPassword = await validatePassword(password, user.password);
@@ -44,7 +44,7 @@ export const login = async (req, res, next) => {
       expiresIn: "1d"
      });
 
-     await User.findByIdAndUpdate(user._id, { accessToken })
+     await UserModel.findByIdAndUpdate(user._id, { accessToken })
      
      res.status(200).json({
       data: { email: user.email, role: user.role },

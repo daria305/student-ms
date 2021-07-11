@@ -9,12 +9,12 @@ router
     .post('/signup', signup) 
     .post('/login', login)
  
-    .get('/user/:userId', allowIfLoggedin, getUser)
-    .get('/users', allowIfLoggedin, grantAccess('readAny', 'profile'), getUsers)
+    .get('/:userId', allowIfLoggedin, getUser)
+    .get('', allowIfLoggedin, grantAccess('readAny', 'profile'), getUsers)
  
-    .put('/user/:userId', allowIfLoggedin, grantAccess('updateAny', 'profile'), updateUser)
+    .put('/:userId', allowIfLoggedin, grantAccess('updateAny', 'profile'), updateUser)
  
-    .delete('/user/:userId', allowIfLoggedin, grantAccess('deleteAny', 'profile'), deleteUser);
+    .delete('/:userId', allowIfLoggedin, grantAccess('deleteAny', 'profile'), deleteUser);
     
 
 export default router;
