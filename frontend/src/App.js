@@ -3,12 +3,11 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 import { makeStyles } from "@material-ui/core/styles"
 
-import LoginForm from './components/Login/LoginForm';
-import Courses from './components/Pages/Course';
-import Timetables from './components/Pages/Timetables';
-import Home from './components/Pages/Home';
+
 import Nav from './components/Layout/Nav';
 import Footer from './components/Layout/Footer';
+import AppSwitch from './components/Switch';
+
 
 function App() {
   const student1 = {
@@ -42,13 +41,8 @@ const useStyles = makeStyles({});
     <Router basename="course-ms">
         <div className="App">
         <Nav />
-        <Switch>
-        <Redirect exact from="/" to="/home" />
-        <Route path="/home" component={Home} />
-        <Route path="/courses" component={Courses} />
-        <Route path="/timetables" component={Timetables} />
-        <Route path="/login" component={LoginForm} />
-        </Switch>
+        <AppSwitch />
+
       {/* {(user.email !== "") ? (
         <p>Hello</p>
         // <UserPage Logout={Logout} user={user}/>
