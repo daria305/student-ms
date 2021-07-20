@@ -11,10 +11,6 @@ const useStyles = makeStyles({
     },
 });
 
-const linkStyle = {
-    textDecoration: "none",
-    textColor: "inherit",
-};
 
 function Nav() {
     const classes = useStyles();
@@ -24,7 +20,7 @@ function Nav() {
         setValue(newValue);
     };
     return (
-        <nav>
+        <nav className={classes.footer}>
             <Paper className={classes.root}>
                 <Tabs value={value} onChange={handleChange} indicatorColor="primary" textColor="primary" centered>
                     <Tab label="Home" to="/home" component={Link} />
