@@ -23,7 +23,7 @@ function Nav() {
         <nav className={classes.footer}>
             <Paper className={classes.root}>
                 <Tabs value={value} onChange={handleChange} indicatorColor="primary" textColor="primary" centered>
-                    <Tab label="Home" to="/home" component={Link} />
+                    <Tab label="Profile" to="/profile" component={Link} />
                     <Tab label="Courses" to="/courses" component={Link} />
                     <Tab label="Timetables" to="/timetables" component={Link} />
                 </Tabs>

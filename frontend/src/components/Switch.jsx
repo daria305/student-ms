@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom'
 
 import Courses from './Pages/Course';
 import Timetables from './Pages/Timetables';
-import Home from './Pages/Home';
+import Profile  from './Pages/Profile';
 import LoginForm from './Login/LoginForm';
 import { AppContext } from "../AppContext";
 
@@ -22,8 +22,8 @@ const AppSwitch = () => {
     return (
         <main className={classes.rootMain}>
             <Switch>
-                <Redirect exact from="/" to="/home" />
-                <Route path="/home" render={()=>(token ? <Home /> : <LoginForm /> )} />
+                <Redirect exact from="/" to="/profile" />
+                <Route path="/profile" render={()=>(token ? <Profile /> : <LoginForm /> )} />
                 <Route path="/courses" component={Courses} />
                 <Route path="/timetables" component={Timetables} />
                 <Route path="/login" component={LoginForm} />

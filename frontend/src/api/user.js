@@ -1,5 +1,7 @@
+
 export class Users {
-    static apiUrl = "https://student-man-system.herokuapp.com/api/users"
+    // static apiUrl = "https://student-man-system.herokuapp.com/api/users"
+    static apiUrl = "http://localhost:4000/api/users"
 
     static  async getUsers(token) {
         try {
@@ -30,6 +32,22 @@ export class Users {
 
             if (!response.ok) return { error: loginBody.error || "Unauthorized", statusCode: response.status };
             return { token: loginBody.accessToken, profile: loginBody.data };
+        } catch (error) {
+            Users.handleError(error);
+        }
+    }
+
+
+    static  async getUserCourses(token, userId) {
+        try {
+            const response = await fetch(`${Users.apiUrl}/${userId}/courses`, {
+                method: "GET",
+                mode: "cors",
+                headers: {
+                    'x-access-token': token
+                },
+            });
+            return await response.json();
         } catch (error) {
             Users.handleError(error);
         }
