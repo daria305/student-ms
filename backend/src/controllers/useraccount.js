@@ -47,7 +47,7 @@ export const login = async (req, res, next) => {
      await UserModel.findByIdAndUpdate(user._id, { accessToken })
      
      res.status(200).json({
-      data: { email: user.email, role: user.role },
+      data: { email: user.email, role: user.role, name: user.name, surname: user.surname, userId: user._id},
       accessToken
      })
     } catch (error) {
