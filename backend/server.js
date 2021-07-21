@@ -22,6 +22,7 @@ class Server {
         this.start();
     }
 
+
     async connectToDB() {
         const dbConnectionString = process.env.DATABASE_URL;
 
@@ -35,6 +36,10 @@ class Server {
             console.log("Connection to database failed. Try again...");
         }
     }
+    corsOptions = {
+        origin: 'http://localhost:3000',
+        optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+      }
 
     useMiddlewares() {
         this.app.use(json());
@@ -52,6 +57,12 @@ class Server {
             } else { 
              next(); 
             } 
+
+        this.app.use(async (req, res, next) => {
+            res.setHeader("Access-Control-Allow-Origin", "*");
+            res.setHeader('Access-Control-Allow-Methods', '*');
+            res.setHeader("Access-Control-Allow-Headers", "*");
+        })
            });
     }
 

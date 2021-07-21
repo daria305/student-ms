@@ -7,6 +7,7 @@ import Courses from './Pages/Course';
 import Timetables from './Pages/Timetables';
 import Home from './Pages/Home';
 import LoginForm from './Login/LoginForm';
+import { AppContext } from "../AppContext";
 
 const useStyles = makeStyles((theme) => ({
     rootMain: {
@@ -15,15 +16,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const AppSwitch = () => {
-    // TO DO define context for the token
-    // const { token } = useContext(AppContext);
-    const token = ""
+    const { token } = useContext(AppContext);
+
     const classes = useStyles();
     return (
         <main className={classes.rootMain}>
             <Switch>
                 <Redirect exact from="/" to="/home" />
-                <Route path="/home" render={()=>(token ? <LoginForm /> : <Home />)} />
+                <Route path="/home" render={()=>(token ? <Home /> : <LoginForm /> )} />
                 <Route path="/courses" component={Courses} />
                 <Route path="/timetables" component={Timetables} />
                 <Route path="/login" component={LoginForm} />
