@@ -5,6 +5,7 @@ import cors from "cors";
 import routes from "./src/routes/main.js";
 import jwt from 'jsonwebtoken';
 import UserModel from "./src/models/user.js";
+import CourseModel from "./src/models/course.js";
 
 dotenv.config({ path: "./.env" });
 
@@ -25,11 +26,13 @@ class Server {
 
     async connectToDB() {
         const dbConnectionString = process.env.DATABASE_URL;
+        console.log(`connection string: ${dbConnectionString}`);
 
         try {
             this.mongoConnection = await mongoose.connect(dbConnectionString, {
                 useNewUrlParser: true,
                 useUnifiedTopology: true,
+                useFindAndModify: false,
             });
         } catch (error) {
             console.log(error);

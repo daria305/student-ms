@@ -2,11 +2,13 @@ import { AppContext } from "../../AppContext";
 import { useContext } from 'react' 
 import { TextField, Typography, Box } from "@material-ui/core";
 import { Users } from "../../api/user.js";
+import { Courses } from "../../api/course.js";
 
 function Profile() {
     const { profile, token } = useContext(AppContext);
     // const apiUser = new Users()
     const courses = Users.getUserCourses(token, profile.userId);
+    //const courses = Courses.getUserCourses(token, profile.userId);
 
     console.log(courses)
     const elemChosenCourses = []
@@ -14,10 +16,12 @@ function Profile() {
         elemChosenCourses.push(
             <li className="courseItem">{value}</li>
         )
+
     }
     return (
         <div>
-            <Box p={5}>
+            Profile
+            {/* <Box p={5}>
                 <Typography variant="h4" color="textSecondary">
                     Hello {profile.name}, {profile.surname}
                 </Typography>
@@ -27,11 +31,11 @@ function Profile() {
                You are enrolled to the following courses:
             </Typography>
 
-            <ul className="courses">
+            { <ul className="courses">
                 {elemChosenCourses}
-            </ul>
+            </ul> }
 
-            
+             */}
         </div>
     );
 }

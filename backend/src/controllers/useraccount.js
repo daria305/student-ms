@@ -34,7 +34,7 @@ export const login = async (req, res, next) => {
     try {
      const { email, password } = req.body;
 
-     const user = await UserModel.findOne({ email });
+     const user = await UserModel.findOne({ email }).exec();
      if (!user) return next(new Error('Email does not exist'));
 
      const validPassword = await validatePassword(password, user.password);

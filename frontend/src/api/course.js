@@ -13,7 +13,7 @@ export class Courses {
             });
             return await response.json();
         } catch (error) {
-            Users.handleError(error);
+            Courses.handleError(error);
         }
     }
 
@@ -29,7 +29,7 @@ export class Courses {
             });
             return await response.json();
         } catch (error) {
-            Users.handleError(error);
+            Courses.handleError(error);
         }
     }
 
